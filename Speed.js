@@ -39,6 +39,8 @@
                     if (elems[ki].className && elems[ki].className.indexOf('close') != -1) len++;
                 if (len <= bombs) alert('You win!');
             }
+            if (dom.innerHTML == ' ')
+                for (var ks = 0; ks < 9; ks++) open(i - ((Math.floor(ks / 3) - 1)), j - (((ks % 3) - 1)));
         }
     }
 }(10, 100));

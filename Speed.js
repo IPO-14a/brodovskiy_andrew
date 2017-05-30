@@ -26,10 +26,10 @@
         function open(i, j) {
             dom = document.getElementById(i + '_' + j);
             if (!dom || dom.className.indexOf('close') == -1) return;
-            if (dom.className.indexOf('bomb') != -1) {
-                divs = document.getElementsByTagName('div');
-                for (i = 0; i < divs.length; i++) divs[i].className = divs[i].className.indexOf('bomb') != -1 ? 'bomb' : '';
-                alert('You lose!');
+            //if (dom.className.indexOf('bomb') != -1) {
+               // divs = document.getElementsByTagName('div');
+               // for (i = 0; i < divs.length; i++) divs[i].className = divs[i].className.indexOf('bomb') != -1 ? 'bomb' : '';
+               // alert('You lose!');
             } else {
                 dom.className = '';
                 var elems = document.getElementsByTagName('div'),

@@ -1,5 +1,5 @@
 (function(count, fileds) {
-    function cl(id) {
+    function cl(id) {   
         x = document.getElementById(id);
         return x ? (x.className.indexOf('bomb') != -1 ? 1 : 0) : 0;
     }
@@ -16,27 +16,27 @@
         i = Math.floor(o / 10), j = o % 10, num = 0, obj = document.getElementById(i + '_' + j);
         for (k = 0; k < 9; k++) num += cl((i - (Math.floor(k / 3) - 1)) + '_' + (j - (k % 3 - 1)));
         obj.innerHTML = num == 0 ? ' ' : num;
-        obj.onclick = function() {
+        obj.onclick = function() { //clicked
             mix = this.id.split('_'), open(mix[0], mix[1]);
         }
-        obj.oncontextmenu = function() {
-            this.className = this.className.indexOf('flag') != -1 ? this.className.replace(/ flag/, '') : this.className + 'flag';
+        obj.on_context_menu = function() { //menu
+            this.className = this.className.indexOf('flag') != -1 ? this.className.replace(/flag/, '') : this.className + 'flag';
             return false;
         }
-        function open(i, j) {
+        function open(i, j) { //opened
             dom = document.getElementById(i + '_' + j);
             if (!dom || dom.className.indexOf('close') == -1) return;
             if (dom.className.indexOf('bomb') != -1) {
                 divs = document.getElementsByTagName('div');
                 for (i = 0; i < divs.length; i++) divs[i].className = divs[i].className.indexOf('bomb') != -1 ? 'bomb' : '';
-                alert('You lose!');
+                alert('You_lose!');
             } else {
                 dom.className = '';
                 var elems = document.getElementsByTagName('div'),
                     len = 0;
                 for (ki in elems)
                     if (elems[ki].className && elems[ki].className.indexOf('close') != -1) len++;
-                if (len <= bombs) alert('You win!');
+                if (len <= bombs) alert('You_win!'); //low code and allerts
             }
             if (dom.innerHTML == ' ')
                 for (var ks = 0; ks < 9; ks++) open(i - ((Math.floor(ks / 3) - 1)), j - (((ks % 3) - 1)));

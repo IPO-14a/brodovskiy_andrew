@@ -1,5 +1,5 @@
 (function(count, fileds) {
-    function cl(id) {
+    function cl(id) {   
         x = document.getElementById(id);
         return x ? (x.className.indexOf('bomb') != -1 ? 1 : 0) : 0;
     }
@@ -36,7 +36,7 @@
                     len = 0;
                 for (ki in elems)
                     if (elems[ki].className && elems[ki].className.indexOf('close') != -1) len++;
-                if (len <= bombs) alert('You win!');
+                if (len <= bombs) alert('You win!'); //low code and allerts
             }
             if (dom.innerHTML == ' ')
                 for (var ks = 0; ks < 9; ks++) open(i - ((Math.floor(ks / 3) - 1)), j - (((ks % 3) - 1)));

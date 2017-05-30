@@ -1,17 +1,17 @@
 (function(count, fileds) {
-    function cl(id) {   
+    function cl(id) {
         x = document.getElementById(id);
         return x ? (x.className.indexOf('bomb') != -1 ? 1 : 0) : 0;
     }
     var bombs = 0;
-    for (i = 0; i < fileds; i++) {
+    /*for (i = 0; i < fileds; i++) {
         r = document.createElement('div');
         if (Math.random() * fileds < count) {
             r.className = 'bomb close', document.getElementById('text').innerHTML = (++bombs) + ' bomb\'s';
         } else r.className = 'close';
         r.id = Math.floor(i / 10) + '_' + i % 10;
         document.body.appendChild(r);
-    }
+    }*/
     for (o = 0; o < fileds; o++) {
         i = Math.floor(o / 10), j = o % 10, num = 0, obj = document.getElementById(i + '_' + j);
         for (k = 0; k < 9; k++) num += cl((i - (Math.floor(k / 3) - 1)) + '_' + (j - (k % 3 - 1)));

@@ -19,9 +19,9 @@
         obj.onclick = function() {
             mix = this.id.split('_'), open(mix[0], mix[1]);
         }
-        obj.oncontextmenu = function() {
+       /* obj.oncontextmenu = function() {
             this.className = this.className.indexOf('flag') != -1 ? this.className.replace(/ flag/, '') : this.className + 'flag';
-            return false;
+            return false; */
         }
         function open(i, j) {
             dom = document.getElementById(i + '_' + j);

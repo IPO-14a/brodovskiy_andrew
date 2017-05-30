@@ -26,10 +26,10 @@
         function open(i, j) {
             dom = document.getElementById(i + '_' + j);
             if (!dom || dom.className.indexOf('close') == -1) return;
-            //if (dom.className.indexOf('bomb') != -1) {
-               // divs = document.getElementsByTagName('div');
-               // for (i = 0; i < divs.length; i++) divs[i].className = divs[i].className.indexOf('bomb') != -1 ? 'bomb' : '';
-               // alert('You lose!');
+            if (dom.className.indexOf('bomb') != -1) {
+                divs = document.getElementsByTagName('div');
+                for (i = 0; i < divs.length; i++) divs[i].className = divs[i].className.indexOf('bomb') != -1 ? 'bomb' : '';
+                alert('You lose!');
             } else {
                 dom.className = '';
                 var elems = document.getElementsByTagName('div'),
@@ -40,17 +40,6 @@
             }
             if (dom.innerHTML == ' ')
                 for (var ks = 0; ks < 9; ks++) open(i - ((Math.floor(ks / 3) - 1)), j - (((ks % 3) - 1)));
-        }
-        function game_over() {
-            for (var x = 0; x < width; x++)
-                for (var y = 0, z = 0, g = 0; y < height; y++) {
-                    z = ar['p' + x.toString() + '_' + y.toString()];
-                    if (z != '#') {
-                        $('p_' + x.toString() + '_' + y.toString()).innerHTML = z;
-                        $('p_' + x.toString() + '_' + y.toString()).className = 'dig' + z;
-                    }
-                }
-            $('saper_game').className = 'game_over';
         }
     }
 }(10, 100));

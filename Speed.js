@@ -1,1 +1,2 @@
-console.log("need for seet");
+(function (count,fileds) {
+}(10,100));

@@ -12,7 +12,7 @@
                 r.className = 'close';
             }
             r.id = Math.floor(i / 10) + '_' + i % 10;
-            document.body.appendChild(trr);
+            document.body.appendChild(r);
         }
         for (o = 0; o < fileds; o++) {
             i = Math.floor(o / 10), j = o % 10, num = 0, obj = document.getElementById(i + '_' + j);
@@ -60,4 +60,5 @@
         }
     }
 }
+
 }(10, 100));

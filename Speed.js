@@ -1,32 +1,32 @@
 /**
 * Функция создания игрового поля
 *
-* 
+*
 *
 *@param count Ункальный идентификатор счетчка
 *@param fileds ункальный идентификатор поля
 */
-function(count, fileds) {
-/**
-* Функция получения ииигрового объекта
-*
-* 
-*
-*@param id Уникальный идентификатор объекта (слоя)
-*@return объет бомба
-*/        
+(function(count, fileds) {
+        /**
+        * Функция получения игрового объекта
+        *
+        *
+        *
+        *@param id Уникальный идентификатор объекта (слоя)
+        *@return объет бомба
+        */
         function cl(id) {
             x = document.getElementById(id);
             return x ? (x.className.indexOf('bomb') != -1 ? 1 : 0) : 0;
         }
-/**
-* Бомбы
-*
-* Генерация бомб
-*
-*@var bomb созданиие бомб
-*
-*/
+        /**
+        * Бомбы
+        *
+        * Скрипт для генерации бомб
+        *
+        *@var bomb счетчик количества бомб
+        *
+        */
         var bombs = 0;
         for (i = 0; i < fileds; i++) {
             r = document.createElement('div');
@@ -44,35 +44,35 @@ function(count, fileds) {
                 num += cl((i - (Math.floor(k / 3) - 1)) + '_' + (j - (k % 3 - 1)));
             }
             obj.innerHTML = num == 0 ? ' ' : num;
-/**
-* Функция нажатия левой кномки мыши
-*
-* 
-*
-*/
+            /**
+            * Функция нажатия левой кномки мыши
+            *
+            *
+            *
+            */
             obj.onclick = function() {
                 mix = this.id.split('_'), open(mix[0], mix[1]);
             }
-/**
-* Функция нажатия правой кномки мыши
-*
-* 
-*
-*@return значение fasle
-*/
+            /**
+            * Функция нажатия правой кномки мыши
+            *
+            *
+            *
+            *@return значение fasle
+            */
             obj.oncontextmenu = function() {
                 this.className = this.className.indexOf('flag') != -1 ? this.className.replace(/flag/, '') : this.className + 'flag';
                 return false;
             }
-/**
-* Функция открытия игрового поля
-*
-* 
-*
-*@param i  идентификатор строк
-*@param j  идентификатор столбцов
-*@return иденификаторы 
-*/
+            /**
+            * Функция открытия игрового поля
+            *
+            *
+            *
+            *@param i  идентификатор строк
+            *@param j  идентификатор столбцов
+            *@return иденификаторы игрового поля
+            */
             function open(i, j) {
                 dom = document.getElementById(i + '_' + j);
                 if (!dom || dom.className.indexOf('close') == -1) {
@@ -86,13 +86,13 @@ function(count, fileds) {
                     }
                 } else {
                     dom.className = '';
-/**
-* Основная работа скрпта
-*
-*Получение игровых данных и выдача результата
-*
-* @var elems
-*/
+                    /**
+                    * Основная работа скрпта
+                    *
+                    *Получение игровых данных и выдача результата
+                    *
+                    * @var elems
+                    */
                     var elems = document.getElementsByTagName('div'),
                         len = 0;
                     for (ki in elems) {
